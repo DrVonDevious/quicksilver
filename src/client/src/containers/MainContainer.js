@@ -1,10 +1,16 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+
+import { useDispatch, useSelector } from 'react-redux';
 import { setUsers } from '../reducers/userReducer';
+
+import CanvasContainer from '../containers/CanvasContainer';
+import MenuContainer from '../containers/MenuContainer';
+import CodeBoxContainer from '../containers/CodeBoxContainer.js';
 
 const MainContainer = () => {
 
   const dispatch = useDispatch();
+  const codeState = useSelector(state => state.code.codeState);
 
   // fetches all the users that exist in our database
   useEffect(() => {
@@ -17,6 +23,9 @@ const MainContainer = () => {
 
   return (
     <div>
+      <CanvasContainer />
+      { codeState ? <CodeBoxContainer /> : null }
+      <MenuContainer />
     </div>
   )
 };
