@@ -1,17 +1,26 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const headerStyle = {
-  background: "black",
-  height: "15vh",
-  // lineHeight: "15vh"
-}
-
-const NavBar = (props) => {
+const NavBar = () => {
   return (
-    <div style={headerStyle}>
-      <h1 style={{color: "white"}}>JWT Auth Setup</h1>
-      <button className="ui button" onClick={() => props.handleFormSwitch("signUp")}>Sign Up</button>
-      <button className="ui button" onClick={() => props.handleFormSwitch("login")}>Log In</button>
+    <div>
+      <Link to="/">
+        <button type="button">
+          Home
+        </button>
+      </Link>
+
+      <Link to="/login">
+        <button type="button">
+          Login
+        </button>
+      </Link>
+
+      <Link to="/sign_up">
+        <button type="button">
+          Register
+        </button>
+      </Link>
     </div>
   );
 };

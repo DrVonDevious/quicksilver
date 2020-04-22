@@ -1,10 +1,10 @@
 import React from 'react';
 import RegisterForm from '../components/RegisterForm';
 
-const RegisterContainer = (props) => {
+const RegisterContainer = () => {
   return (
     <div>
-      <RegisterForm handleLogin={props.handleLogin} />
+      <RegisterForm />
     </div>
   );
 };

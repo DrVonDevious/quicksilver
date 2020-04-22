@@ -1,60 +1,67 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { setUser } from '../reducers/userReducer';
+import { useDispatch } from 'react-redux';
 
-const RegisterForm = (props) => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+const RegisterForm = () => {
 
-  const handleUsernameChange = (evt) => {
-    setUsername(evt.target.value);
+  const dispatch = useDispatch();
+
+  // Parses our form data and sends it to post function
+  const handleRegister = (e) => {
+    e.preventDefault();
+    var user = {
+      username: e.target[0].value,
+      password: e.target[1].value,
+      password_confirmation: e.target[2].value
+    };
+    postUser(user);
   };
 
-  const handlePasswordChange = (evt) => {
-    setPassword(evt.target.value);
-  };
-
-  const handleSubmit = (evt) => {
-    evt.preventDefault()
-    fetch(`http://localhost:8080/users`, {
+  // posts a new user to our users table
+  // and logs any errors that exist in the form
+  const postUser = (user) => {
+    fetch("http://localhost:8080/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         "Accept": "application/json"
       },
       body: JSON.stringify({
-        username,
-        password
+        username: user.username,
+        password: user.password,
+        password_confirmation: user.password_confirmation
       })
     })
-      .then(resp => resp.json())
+      .then(res => res.json())
       .then(data => {
-        console.log(data);
-        localStorage.setItem("toke", data.jwt)
-        props.handleLogin(data.user)
-      });
-    setUsername("");
-    setPassword("");
+        if (data.jwt) {
+          // adds the user info to client side storage
+          localStorage.username = data.user.username;
+          localStorage.password = data.user.password;
+          localStorage.token = data.jwt;
+          console.log(`Welcome ${data.user.username}!`);
+          dispatch(setUser(data.user));
+        } else {
+          alert(data.error);
+          console.log("Invalid signup!");
+        };
+      })
   };
 
-  const formDivStyle = {
-      margin: "auto",
-      padding: "20px",
-      width: "80%"
-  };
-
-  return(
-    <div style={formDivStyle}>
-      <h1>Sign Up</h1>
-      <form className="ui form" onSubmit={handleSubmit}>
-        <div className="field">
-          <label>Username</label>
-          <input value={username} onChange={handleUsernameChange} type="text" placeholder="username"/>
-        </div>
-        <div className="field">
-          <label>Password</label>
-          <input value={password} onChange={handlePasswordChange} type="password" placeholder="password"/>
-        </div>
-
-        <button className="ui button" type="submit">Submit</button>
+  return (
+    <div>
+      <h2>Register</h2>
+      <form onSubmit={(e) => handleRegister(e)}>
+        <label>Username: </label>
+        <input type="text" />
+        <br />
+        <label>Password: </label>
+        <input type="text" />
+        <br />
+        <label>Confirm Password: </label>
+        <input type="text" />
+        <br />
+        <button>Register</button>
       </form>
     </div>
   );
