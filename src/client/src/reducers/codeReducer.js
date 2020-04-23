@@ -6,7 +6,7 @@ const codeSlice = createSlice({
   name: "codeSlice",
   initialState: {
     codeState: false,
-    mode: "css",
+    mode: "html",
     css: "",
     html: "",
     js: ""

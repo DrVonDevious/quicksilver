@@ -1,6 +1,7 @@
 import React from 'react';
 
 import SaveComponentForm from '../components/SaveComponentForm';
+import '../css/SaveComponentContainer.css';
 
 const SaveComponentContainer = () => {
   return (

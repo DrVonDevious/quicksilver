@@ -34,9 +34,9 @@ const LoginForm = () => {
       .then(data => {
         // if the user is authenticated
         if (data.jwt) {
-          localStorage.username = data.user.username;
-          localStorage.password = data.user.password;
-          localStorage.token = data.jwt;
+          localStorage.setItem("username", data.user.username);
+          localStorage.setItem("password", data.user.password);
+          localStorage.setItem("token", data.jwt);
           console.log(`Welcome back ${data.user.username}!`);
           dispatch(setUser(data.user));
         } else {
