@@ -27,8 +27,8 @@ const CodeBox = () => {
         <div>
           CSS:
           <CodeMirror
+            value={codeState.css}
             options={{
-              value: "what",
               mode: "css",
               theme: "material",
               lineNumbers: true
@@ -43,6 +43,7 @@ const CodeBox = () => {
         <div>
           HTML:
           <CodeMirror
+            value={codeState.html}
             options={{
               mode: "htmlmixed",
               theme: "material",
@@ -58,6 +59,7 @@ const CodeBox = () => {
         <div>
           JavaScript:
           <CodeMirror
+            value={codeState.js}
             options={{
               mode: "javascript",
               theme: "material",
