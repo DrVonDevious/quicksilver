@@ -8,31 +8,38 @@ import 'codemirror/mode/javascript/javascript';
 import 'codemirror/mode/htmlmixed/htmlmixed';
 
 import {UnControlled as CodeMirror} from 'react-codemirror2'
-import { useSelector } from 'react-redux';
+
+import { useSelector, useDispatch } from 'react-redux';
+
+import { updateCSS, updateHTML, updateJS } from '../reducers/codeReducer';
 
 const CodeBox = () => {
 
-  const mode = useSelector(state => state.code.mode);
+  const dispatch = useDispatch();
+  const codeState = useSelector(state => state.code);
+  const canvas = document.getElementsByClassName("main-canvas")
 
   return (
     <div className="code-box">
 
       {/* --------- CSS Code Box -------- */}
-      { mode === "css" ? [
+      { codeState.mode === "css" ? [
         <div>
           CSS:
           <CodeMirror
             options={{
+              value: "what",
               mode: "css",
               theme: "material",
               lineNumbers: true
             }}
+            onChange={(e) => dispatch(updateCSS(e.getValue()))}
           />
         </div>
       ] : null }
 
       {/* --------- HTML Code Box -------- */}
-      { mode === "html" ? [
+      { codeState.mode === "html" ? [
         <div>
           HTML:
           <CodeMirror
@@ -41,12 +48,13 @@ const CodeBox = () => {
               theme: "material",
               lineNumbers: true
             }}
+            onChange={(e) => dispatch(updateHTML(e.getValue()))}
           />
         </div>
       ] : null }
 
       {/* ------ Javascript Code Box ----- */}
-      { mode === "js" ? [
+      { codeState.mode === "js" ? [
         <div>
           JavaScript:
           <CodeMirror
@@ -55,6 +63,7 @@ const CodeBox = () => {
               theme: "material",
               lineNumbers: true
             }}
+            onChange={(e) => dispatch(updateJS(e.getValue()))}
           />
         </div>
       ] : null }
