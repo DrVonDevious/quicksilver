@@ -47,6 +47,7 @@ const ComponentListContainer = () => {
         <button onClick={() => handleSwitchList("user")}>My Components</button>,
       ] : null }
       <button onClick={() => handleSwitchList("lib")}>Library</button>
+      <SearchBar />
       <div>{ state.load.components.map(c => (<ComponentItem component={c} key={(Math.random() * 1000)} />)) }</div>
     </div>
   );
