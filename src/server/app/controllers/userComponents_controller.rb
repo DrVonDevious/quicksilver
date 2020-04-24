@@ -16,6 +16,12 @@ class UserComponentsController < ApplicationController
     render json: @userComponent
   end
 
+  def destroy
+    @userComponent = UserComponent.find(params[:id])
+    @userComponent.destroy
+    render json: @userComponent
+  end
+
   private
 
   def component_params

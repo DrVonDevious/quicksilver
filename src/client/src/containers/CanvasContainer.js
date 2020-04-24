@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import dragula from 'react-dragula';
 import '../css/CanvasContainer.css';
 
 const CanvasContainer = () => {
@@ -35,7 +36,7 @@ const CanvasContainer = () => {
   const url = generatePageURL({html: codeState.html, css: codeState.css, js: codeState.js});
 
   return (
-    <iframe className="main-canvas" src={url} />
+    <iframe dropzone="true" onDrop={() => console.log("DROPPED!")} className="main-canvas" src={url} />
   );
 };
 

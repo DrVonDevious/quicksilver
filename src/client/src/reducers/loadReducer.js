@@ -13,8 +13,15 @@ const loadSlice = createSlice({
   reducers: {
     toggleLoad(state, action) { state.loadState = !state.loadState },
     setComponents(state, action) { state.components = action.payload },
+    removeComponent(state, action) {
+      state.components = state.components.filter(c => c.id !== action.payload)
+    },
+    resetComponents(state, action) {
+      state.components = [];
+      state.loadState = false
+    },
   }
 });
 
-export const { toggleLoad, setComponents } = loadSlice.actions;
+export const { toggleLoad, setComponents, resetComponents, removeComponent } = loadSlice.actions;
 export default loadSlice.reducer;

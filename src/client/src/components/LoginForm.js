@@ -1,10 +1,12 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import { setUser } from '../reducers/userReducer';
 import { useDispatch } from 'react-redux';
 
 const LoginForm = () => {
 
   const dispatch = useDispatch();
+  const history = useHistory();
 
   // Parses our form data and sends it to post function
   const handleLogin = (e) => {
@@ -37,6 +39,7 @@ const LoginForm = () => {
           localStorage.setItem("username", data.user.username);
           localStorage.setItem("password", data.user.password);
           localStorage.setItem("token", data.jwt);
+          history.push("/");
           console.log(`Welcome back ${data.user.username}!`);
           dispatch(setUser(data.user));
         } else {

@@ -19,8 +19,14 @@ const codeSlice = createSlice({
     updateJS(state, action) { state.js = action.payload },
     toggleCode(state, action) { state.codeState = !state.codeState },
     setMode(state, action) { state.mode = action.payload },
+    resetCode(state, action) {
+      state.codeState = false;
+      state.css = "";
+      state.html = "";
+      state.js = ""
+    },
   }
 });
 
-export const { toggleCode, setMode, updateCSS, updateHTML, updateJS } = codeSlice.actions;
+export const { toggleCode, setMode, updateCSS, updateHTML, updateJS, resetCode } = codeSlice.actions;
 export default codeSlice.reducer;

@@ -1,11 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+const currentUser = null;
+
 // A slice is a function from toolkit that combines the functionality
 // of an action and a reducer into one
 const userSlice = createSlice({
   name: "userSlice",
   initialState: {
-    currentUser: null,
+    currentUser,
     users: [],
   },
 
@@ -13,8 +15,9 @@ const userSlice = createSlice({
   reducers: {
     setUsers(state, action) { state.users = action.payload },
     setUser(state, action) { state.currentUser = action.payload },
+    resetUser(state, action) { state.currentUser = currentUser }
   }
 });
 
-export const { setUser, setUsers } = userSlice.actions;
+export const { setUser, setUsers, resetUser } = userSlice.actions;
 export default userSlice.reducer;

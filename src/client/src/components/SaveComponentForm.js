@@ -1,8 +1,10 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { toggleSaveForm } from '../reducers/saveReducer';
 
 const SaveComponentForm = () => {
 
+  const dispatch = useDispatch();
   const state = useSelector(state => state);
 
   const handleSave = (e) => {
@@ -26,6 +28,7 @@ const SaveComponentForm = () => {
       .then(res => res.json())
       .then(comp => {
         console.log(comp);
+        dispatch(toggleSaveForm());
       });
   };
 

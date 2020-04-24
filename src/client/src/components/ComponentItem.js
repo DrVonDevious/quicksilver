@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { updateJS, updateCSS, updateHTML } from '../reducers/codeReducer';
+import { updateJS, updateCSS, updateHTML, resetCode } from '../reducers/codeReducer';
+import { removeComponent } from '../reducers/loadReducer';
 import '../css/ComponentItem.css';
 
 const ComponentItem = (props) => {
@@ -23,9 +24,27 @@ const ComponentItem = (props) => {
       })
   };
 
+  const handleDelete = () => {
+    const token = localStorage.getItem("token");
+    fetch(`http://localhost:8080/user_components/${props.component.id}`, {
+      method: "DELETE",
+      headers: {
+        "Authorization": `Bearer ${token}`
+      }
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log("Deleted!");
+        console.log(data);
+        dispatch(removeComponent(props.component.id));
+        dispatch(resetCode());
+      })
+  };
+
   return (
     <div className="component-item" onClick={handleLoadComponent}>
       {props.component.name}
+      <button className="delete-btn" onClick={handleDelete}>Delete</button>
     </div>
   );
 };
