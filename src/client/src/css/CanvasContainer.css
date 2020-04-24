@@ -1,6 +1,7 @@
 
 .main-canvas {
-  background-color: #BBB;
-  width: 400px;
-  height: 400px;
+  background-color: #FFF;
+  width: 800px;
+  height: 600px;
+  border: none;
 }

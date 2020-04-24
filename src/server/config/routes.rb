@@ -11,4 +11,8 @@ Rails.application.routes.draw do
   get "/user_components/:id", to: "auth#user_is_authed"
   delete "/user_components/:id", to: "auth#user_is_authed"
 
+  post "/library_components", to: "auth#user_is_authed"
+  get "/library_components/:id", to: "auth#user_is_authed"
+  delete "/library_components/:id", to: "auth#user_is_authed"
+
 end

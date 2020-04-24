@@ -33,7 +33,11 @@ const CodeBox = () => {
               theme: "material",
               lineNumbers: true
             }}
-            onChange={(e) => dispatch(updateCSS(e.getValue()))}
+            onChange={(editor, data, value) => {
+              var pos = editor.getCursor();
+              dispatch(updateCSS(editor.getValue()));
+              editor.setCursor(pos);
+            }}
           />
         </div>
       ] : null }
@@ -49,7 +53,11 @@ const CodeBox = () => {
               theme: "material",
               lineNumbers: true
             }}
-            onChange={(e) => dispatch(updateHTML(e.getValue()))}
+            onChange={(editor, data, value) => {
+              var pos = editor.getCursor();
+              dispatch(updateHTML(editor.getValue()));
+              editor.setCursor(pos);
+            }}
           />
         </div>
       ] : null }
@@ -65,7 +73,11 @@ const CodeBox = () => {
               theme: "material",
               lineNumbers: true
             }}
-            onChange={(e) => dispatch(updateJS(e.getValue()))}
+            onChange={(editor, data, value) => {
+              var pos = editor.getCursor();
+              dispatch(updateJS(editor.getValue()));
+              editor.setCursor(pos);
+            }}
           />
         </div>
       ] : null }

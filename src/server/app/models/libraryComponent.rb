@@ -1,0 +1,2 @@
+class LibraryComponent < ApplicationRecord
+end

@@ -1,11 +1,10 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import dragula from 'react-dragula';
 import '../css/CanvasContainer.css';
 
 const CanvasContainer = () => {
 
-  const codeState = useSelector(state => state.code);
+  const state = useSelector(state => state);
 
   const generatePageURL = ({ html, css, js }) => {
 
@@ -33,10 +32,10 @@ const CanvasContainer = () => {
 
   };
 
-  const url = generatePageURL({html: codeState.html, css: codeState.css, js: codeState.js});
+  const url = generatePageURL({html: state.code.html, css: state.code.css, js: state.code.js});
 
   return (
-    <iframe dropzone="true" onDrop={() => console.log("DROPPED!")} className="main-canvas" src={url} />
+    <iframe className="main-canvas" src={url} style={{width: state.canvas.width, height: state.canvas.height}}/>
   );
 };
 
