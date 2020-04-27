@@ -1,7 +1,11 @@
 
 .main-canvas {
   background-color: #FFF;
-  width: 800px;
-  height: 600px;
+  position: absolute;
+  top: 46%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 4px 4px 20px -4px;
   border: none;
+  z-index: -1;
 }

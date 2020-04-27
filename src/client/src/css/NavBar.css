@@ -1,4 +1,10 @@
 
 .nav-bar {
-  background-color: #BB99ff;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(20px);
+  border-bottom-style: solid;
+  border-bottom-color: rgba(255,255,255, 0.4);
+  box-shadow: 0px 2px 20px -4px;
+  border-width: thin;
+  height: 30px;
 }

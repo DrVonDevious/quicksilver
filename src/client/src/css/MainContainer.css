@@ -1,0 +1,21 @@
+
+body {
+  background: url("https://pixy.org/src/475/4754393.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+.resize-container {
+  display: inline-flex;
+  position: absolute;
+  top: 95%;
+  left: 88%;
+  transform: translate(-50%, 0);
+}
+
+.lg-btn {}
+
+.md-btn {}
+
+.sm-btn {}
+
+.mb-btn {}

@@ -1,0 +1,9 @@
+
+.menu-btn {
+  position: absolute;
+  top: 95vh;
+  left: 50%;
+  transform: translate(-50%, 0);
+  border: none;
+  background-color: magenta;
+}

@@ -8,6 +8,7 @@ import MenuContainer from '../containers/MenuContainer';
 import CodeBoxContainer from '../containers/CodeBoxContainer';
 import SaveComponentContainer from '../containers/SaveComponentContainer';
 import ComponentListContainer from '../containers/ComponentListContainer';
+import '../css/MainContainer.css';
 
 const MainContainer = () => {
 
@@ -30,10 +31,12 @@ const MainContainer = () => {
       { state.save.saveFormState ? <SaveComponentContainer /> : null }
       { state.load.loadState ? <ComponentListContainer /> : null }
       <br />
-      <button onClick={() => dispatch(resizeCanvas("lg"))}>Large</button>
-      <button onClick={() => dispatch(resizeCanvas("md"))}>Medium</button>
-      <button onClick={() => dispatch(resizeCanvas("sm"))}>Small</button>
-      <button onClick={() => dispatch(resizeCanvas("mb"))}>Mobile</button>
+      <div className="resize-container">
+        <button className="lg-btn" onClick={() => dispatch(resizeCanvas("lg"))}>Large</button>
+        <button className="md-btn"  onClick={() => dispatch(resizeCanvas("md"))}>Medium</button>
+        <button className="sm-btn" onClick={() => dispatch(resizeCanvas("sm"))}>Small</button>
+        <button className="mb-btn" onClick={() => dispatch(resizeCanvas("mb"))}>Mobile</button>
+      </div>
       <MenuContainer />
     </div>
   )

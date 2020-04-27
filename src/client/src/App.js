@@ -12,7 +12,7 @@ const App = () => {
   return (
     <Router>
       <NavBar />
-      <MainContainer />
+      <Route exact path="/" component={MainContainer}/>
       <Route path="/login" component={LoginContainer}/>
       <Route path="/sign_up" component={RegisterContainer}/>
     </Router>
