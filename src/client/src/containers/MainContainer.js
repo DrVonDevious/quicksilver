@@ -26,6 +26,8 @@ const MainContainer = () => {
       })
   }, []);
 
+  console.log(state.load.loadState)
+
   return (
     <div>
       <CanvasContainer />

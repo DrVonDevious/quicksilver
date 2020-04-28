@@ -6,6 +6,7 @@ const loadSlice = createSlice({
   name: "loadSlice",
   initialState: {
     loadState: false,
+    query: "",
     components: [],
   },
 
@@ -18,10 +19,16 @@ const loadSlice = createSlice({
     },
     resetComponents(state, action) {
       state.components = [];
-      state.loadState = false
     },
+    filterComponents(state, action) { state.query = action.payload },
   }
 });
 
-export const { toggleLoad, setComponents, resetComponents, removeComponent } = loadSlice.actions;
+export const {
+  toggleLoad,
+  setComponents,
+  resetComponents,
+  removeComponent,
+  filterComponents
+} = loadSlice.actions;
 export default loadSlice.reducer;

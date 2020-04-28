@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { resetUser } from '../reducers/userReducer';
 import { resetCode } from '../reducers/codeReducer';
-import { resetComponents } from '../reducers/loadReducer';
+import { resetComponents, toggleLoad } from '../reducers/loadReducer';
 import '../css/NavBar.css';
 
 const NavBar = () => {
@@ -24,7 +24,8 @@ const NavBar = () => {
           <button onClick={() => (
             dispatch(resetUser()),
             dispatch(resetCode()),
-            dispatch(resetComponents())
+            dispatch(resetComponents()),
+            dispatch(toggleLoad())
           )} type="button">
             Logout
           </button>

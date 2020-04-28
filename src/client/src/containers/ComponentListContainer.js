@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { v4 as uuid } from 'uuid';
 
 import { setComponents, resetComponents } from '../reducers/loadReducer';
 import ComponentItem from '../components/ComponentItem';
@@ -22,7 +23,7 @@ const ComponentListContainer = () => {
     })
       .then(res => res.json())
       .then(data => {
-        const components = data;
+        var components = data;
         dispatch(resetComponents())
         if (!isLibrary) {
           components = data.filter(c => c.user_id === state.user.currentUser.id)
@@ -48,7 +49,13 @@ const ComponentListContainer = () => {
       ] : null }
       <button onClick={() => handleSwitchList("lib")}>Library</button>
       <SearchBar />
-      <div>{ state.load.components.map(c => (<ComponentItem component={c} key={(Math.random() * 1000)} />)) }</div>
+      <div>
+        {
+          state.load.components
+            .filter(c => c.name.includes(state.load.query))
+            .map(c => (<ComponentItem component={c} key={uuid()} />))
+        }
+      </div>
     </div>
   );
 };
