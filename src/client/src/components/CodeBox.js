@@ -8,7 +8,6 @@ import 'codemirror/mode/javascript/javascript';
 import 'codemirror/mode/htmlmixed/htmlmixed';
 
 import {UnControlled as CodeMirror} from 'react-codemirror2'
-
 import { useSelector, useDispatch } from 'react-redux';
 
 import { updateCSS, updateHTML, updateJS } from '../reducers/codeReducer';

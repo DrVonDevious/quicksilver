@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import ReactDOMServer from 'react-dom/server';
 
 import { setUsers } from '../reducers/userReducer';
 import { resizeCanvas } from '../reducers/canvasReducer';
@@ -8,6 +9,7 @@ import MenuContainer from '../containers/MenuContainer';
 import CodeBoxContainer from '../containers/CodeBoxContainer';
 import SaveComponentContainer from '../containers/SaveComponentContainer';
 import ComponentListContainer from '../containers/ComponentListContainer';
+
 import '../css/MainContainer.css';
 
 const MainContainer = () => {

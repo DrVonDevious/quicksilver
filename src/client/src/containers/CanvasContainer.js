@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import '../css/CanvasContainer.css';
+import ReactDomServer from 'react-dom/server'
 
 const CanvasContainer = () => {
 
