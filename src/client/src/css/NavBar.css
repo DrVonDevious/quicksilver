@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Pacifico&display=swap');
 
 .nav-bar {
   background-color: rgba(0, 0, 0, 0.3);
@@ -7,4 +9,28 @@
   box-shadow: 0px 2px 20px -4px;
   border-width: thin;
   height: 30px;
+  padding-top: 6px;
+}
+
+.nav-brand {
+  border: none;
+  background-color: transparent;
+  font-size: 12pt;
+  color: rgba(255, 255, 255, 1);
+  text-shadow: 0.4px 0.4px rgba(255, 255, 255, 0.8), -1px -1px rgba(0, 0, 0, 1);
+  outline: none;
+  font-family: 'Fredoka One', cursive;
+  padding-left: 20px;
+}
+
+.nav-link {
+  float: right;
+  padding-right: 20px;
+  border: none;
+  background-color: transparent;
+  font-size: 12pt;
+  color: rgba(255, 255, 255, 0.8);
+  outline: none;
+  font-family: "Roboto";
+  font-weight: bold;
 }

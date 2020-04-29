@@ -2,6 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { setUser } from '../reducers/userReducer';
 import { useDispatch } from 'react-redux';
+import '../css/LoginForm.css';
 
 const LoginForm = () => {
 
@@ -50,7 +51,7 @@ const LoginForm = () => {
   };
 
   return (
-    <div>
+    <div className="login-form">
       <h2>Login</h2>
       <form onSubmit={(e) => handleLogin(e)}>
         <label>Username: </label>

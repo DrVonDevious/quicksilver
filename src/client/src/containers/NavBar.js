@@ -14,14 +14,14 @@ const NavBar = () => {
   return (
     <div className="nav-bar">
       <Link to="/">
-        <button type="button">
-          Home
+        <button className="nav-brand" type="button">
+          Quicksilver
         </button>
       </Link>
 
       { state.user.currentUser ? [
         <Link to="/">
-          <button onClick={() => (
+          <button className="nav-link" onClick={() => (
             dispatch(resetUser()),
             dispatch(resetCode()),
             dispatch(resetComponents()),
@@ -34,7 +34,7 @@ const NavBar = () => {
 
       { !state.user.currentUser ? [
         <Link to="/login">
-          <button type="button">
+          <button className="nav-link" type="button">
             Login
           </button>
         </Link>
@@ -42,7 +42,7 @@ const NavBar = () => {
 
       { !state.user.currentUser ? [
       <Link to="/sign_up">
-        <button type="button">
+        <button className="nav-link" type="button">
           Register
         </button>
       </Link>

@@ -1,9 +1,16 @@
 
 .menu-btn {
+  display: inline-block;
   position: absolute;
-  top: 95vh;
+  top: 94vh;
   left: 50%;
   transform: translate(-50%, 0);
   border: none;
-  background-color: magenta;
+  background-color: transparent;
+  outline: none;
 }
+
+.menu-arrow:hover {
+  fill: rgba(50, 50, 50, 0.6);
+}
+

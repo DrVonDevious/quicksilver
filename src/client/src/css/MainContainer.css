@@ -1,7 +1,6 @@
 
 body {
-  /* background: url("https://pixy.org/src/475/4754393.jpg") no-repeat center center fixed; */
-  background: url("https://img4.goodfon.com/wallpaper/nbig/a/80/background-rainbow-colorful-colors-splash-bright-painting--1.jpg");
+  background: url("https://img4.goodfon.com/wallpaper/nbig/a/80/background-rainbow-colorful-colors-splash-bright-painting--1.jpg") no-repeat center center fixed;
   background-size: cover;
 }
 
@@ -20,3 +19,21 @@ body {
 .sm-btn {}
 
 .mb-btn {}
+
+.component-name {
+  position: absolute;
+  left: 50%;
+  top: 48px;
+  transform: translate(-50%, 0);
+  border: none;
+  outline: none;
+  background-color: rgba(0, 0, 0, 0);
+  color: #FFF;
+  text-align: center;
+  font-size: 20pt;
+}
+
+.pencil-icon {
+  filter: invert(100%);
+  width: 36px;
+}

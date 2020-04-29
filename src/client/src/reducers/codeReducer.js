@@ -5,6 +5,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const codeSlice = createSlice({
   name: "codeSlice",
   initialState: {
+    componentName: "Untitled",
     codeState: false,
     mode: "html",
     css: "",
@@ -19,6 +20,7 @@ const codeSlice = createSlice({
     updateJS(state, action) { state.js = action.payload },
     toggleCode(state, action) { state.codeState = !state.codeState },
     setMode(state, action) { state.mode = action.payload },
+    setName(state, action) { state.componentName = action.payload },
     resetCode(state, action) {
       state.codeState = false;
       state.css = "";
@@ -28,5 +30,14 @@ const codeSlice = createSlice({
   }
 });
 
-export const { toggleCode, setMode, updateCSS, updateHTML, updateJS, resetCode } = codeSlice.actions;
+export const {
+  toggleCode,
+  setMode,
+  updateCSS,
+  updateHTML,
+  updateJS,
+  resetCode,
+  setName,
+} = codeSlice.actions;
 export default codeSlice.reducer;
+

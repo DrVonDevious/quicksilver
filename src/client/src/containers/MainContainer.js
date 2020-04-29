@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import ReactDOMServer from 'react-dom/server';
 
 import { setUsers } from '../reducers/userReducer';
+import { setName } from '../reducers/codeReducer';
 import { resizeCanvas } from '../reducers/canvasReducer';
 import CanvasContainer from '../containers/CanvasContainer';
 import MenuContainer from '../containers/MenuContainer';
@@ -26,21 +27,28 @@ const MainContainer = () => {
       })
   }, []);
 
-  console.log(state.load.loadState)
-
   return (
     <div>
+      <input
+        type="text"
+        className="component-name"
+        value={state.code.componentName}
+        onChange={(e) => dispatch(setName(e.target.value))}
+      />
+
       <CanvasContainer />
       { state.code.codeState ? <CodeBoxContainer /> : null }
       { state.save.saveFormState ? <SaveComponentContainer /> : null }
       { state.load.loadState ? <ComponentListContainer /> : null }
       <br />
+
       <div className="resize-container">
         <button className="lg-btn" onClick={() => dispatch(resizeCanvas("lg"))}>Large</button>
         <button className="md-btn"  onClick={() => dispatch(resizeCanvas("md"))}>Medium</button>
         <button className="sm-btn" onClick={() => dispatch(resizeCanvas("sm"))}>Small</button>
         <button className="mb-btn" onClick={() => dispatch(resizeCanvas("mb"))}>Mobile</button>
       </div>
+
       <MenuContainer />
     </div>
   )

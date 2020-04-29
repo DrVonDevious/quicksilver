@@ -2,6 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { setUser } from '../reducers/userReducer';
 import { useDispatch } from 'react-redux';
+import '../css/RegisterForm.css';
 
 const RegisterForm = () => {
 
@@ -52,7 +53,7 @@ const RegisterForm = () => {
   };
 
   return (
-    <div>
+    <div className="register-form">
       <h2>Register</h2>
       <form onSubmit={(e) => handleRegister(e)}>
         <label>Username: </label>
