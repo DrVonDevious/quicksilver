@@ -1,7 +1,36 @@
 
 .code-box-container {
-  background-color: green;
-  width: 360px;
-  height: 370px;
-  float: right;
+  background-color: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  border-style: solid;
+  border-color: rgba(255,255,255, 0.4);
+  box-shadow: 0px 4px 20px 4px;
+  border-width: thin;
+  width: 420px;
+  height: 476px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 8px;
+  overflow: hidden;
+  resize: both;
+}
+
+.code-box {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.CodeMirror {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
+  height: 100% !important;
+  width: 100% !important;
+}
+
+.react-codemirror2 {
+  height: 100% !important;
+  width: 100% !important;
 }

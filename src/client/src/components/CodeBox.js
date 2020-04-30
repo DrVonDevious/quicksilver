@@ -1,5 +1,6 @@
 import React from 'react';
 
+import '../css/CodeBox.css';
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/material.css';
 
@@ -20,17 +21,15 @@ const CodeBox = () => {
 
   return (
     <div className="code-box">
-
       {/* --------- CSS Code Box -------- */}
       { codeState.mode === "css" ? [
-        <div>
-          CSS:
+          "CSS:",
           <CodeMirror
             value={codeState.css}
             options={{
               mode: "css",
               theme: "material",
-              lineNumbers: true
+              lineNumbers: true,
             }}
             onChange={(editor, data, value) => {
               var pos = editor.getCursor();
@@ -38,13 +37,11 @@ const CodeBox = () => {
               editor.setCursor(pos);
             }}
           />
-        </div>
       ] : null }
 
       {/* --------- HTML Code Box -------- */}
       { codeState.mode === "html" ? [
-        <div>
-          HTML:
+          "HTML:",
           <CodeMirror
             value={codeState.html}
             options={{
@@ -58,13 +55,11 @@ const CodeBox = () => {
               editor.setCursor(pos);
             }}
           />
-        </div>
       ] : null }
 
       {/* ------ Javascript Code Box ----- */}
       { codeState.mode === "js" ? [
-        <div>
-          JavaScript:
+          "Javascript:",
           <CodeMirror
             value={codeState.js}
             options={{
@@ -78,7 +73,6 @@ const CodeBox = () => {
               editor.setCursor(pos);
             }}
           />
-        </div>
       ] : null }
     </div>
   );
