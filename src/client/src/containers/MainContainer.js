@@ -10,6 +10,7 @@ import MenuContainer from '../containers/MenuContainer';
 import CodeBoxContainer from '../containers/CodeBoxContainer';
 import SaveComponentContainer from '../containers/SaveComponentContainer';
 import ComponentListContainer from '../containers/ComponentListContainer';
+import ImportContainer from '../containers/ImportContainer';
 
 import '../css/MainContainer.css';
 
@@ -40,6 +41,7 @@ const MainContainer = () => {
       { state.code.codeState ? <CodeBoxContainer /> : null }
       { state.save.saveFormState ? <SaveComponentContainer /> : null }
       { state.load.loadState ? <ComponentListContainer /> : null }
+      { state.import.importState ? <ImportContainer /> : null }
       <br />
 
       <div className="resize-container">

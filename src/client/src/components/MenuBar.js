@@ -9,6 +9,7 @@ import { toggleMenu } from '../reducers/menuReducer';
 import { toggleCode, updateCSS, updateJS, updateHTML } from '../reducers/codeReducer';
 import { toggleSaveForm } from '../reducers/saveReducer';
 import { toggleLoad } from '../reducers/loadReducer';
+import { toggleImport } from '../reducers/importReducer';
 
 const JSZip = require("jszip");
 
@@ -47,8 +48,9 @@ const MenuBar = () => {
       <button key="3" onClick={() => clearCode()}>Clear Component</button>
       <button key="4" onClick={() => dispatch(toggleLoad())}>Load Component</button>
       <button key="5" onClick={() => generateZip()}>Export Component</button>
+      <button key="6" onClick={() => dispatch(toggleImport())}>Import File</button>
       { state.user.currentUser ? [
-        <button key="5" onClick={() => dispatch(toggleSaveForm())}>Save Component</button>
+        <button key="7" onClick={() => dispatch(toggleSaveForm())}>Save Component</button>
       ] : null }
     </div>
   );

@@ -6,6 +6,7 @@ import code   from './codeReducer';
 import save   from './saveReducer';
 import load   from './loadReducer';
 import canvas from './canvasReducer';
+import imp from './importReducer';
 
 const rootReducer = combineReducers({
   user: user,
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
   save: save,
   load: load,
   canvas: canvas,
+  import: imp,
 });
 
 export default rootReducer;
