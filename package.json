@@ -1,0 +1,20 @@
+{
+  "name": "quicksilver",
+  "version": "1.0.0",
+  "description": "Needs Work :(",
+  "main": "index.js",
+  "scripts": {
+    "start": "cd src/server && rails s && cd .. && cd client && npm start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DrVonDevious/quicksilver.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DrVonDevious/quicksilver/issues"
+  },
+  "homepage": "https://github.com/DrVonDevious/quicksilver#readme"
+}
