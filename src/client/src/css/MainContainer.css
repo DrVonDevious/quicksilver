@@ -9,18 +9,38 @@ body {
 .resize-container {
   display: inline-flex;
   position: absolute;
-  top: 95%;
-  left: 88%;
+  top: 94%;
+  left: 94%;
   transform: translate(-50%, 0);
 }
 
-.lg-btn {}
+.lg-btn {
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
 
-.md-btn {}
+.md-btn {
 
-.sm-btn {}
+}
 
-.mb-btn {}
+.sm-btn {
+
+}
+
+.mb-btn {
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+svg {
+  fill: rgba(0, 0, 0, 0.7);
+}
+
+svg:hover {
+  fill: #04b;
+}
 
 .component-name {
   position: absolute;

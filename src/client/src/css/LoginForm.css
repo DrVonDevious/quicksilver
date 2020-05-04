@@ -2,10 +2,38 @@
   text-align: center;
 }
 
-label {
+.form-header {
   color: white;
 }
 
-h2 {
-  color: white;
+.form-input {
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  margin-bottom: 40px;
+  margin-top: 8px;
+  padding: 4px 12px 4px 12px;
+  font-size: 14pt;
+  box-shadow: 2px 2px 10px -2px inset;
+}
+
+.form-label {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14pt;
+}
+
+.form-btn {
+  background-color: rgba(255, 255, 255, 0.4);
+  color: #333;
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 11pt;
+  border-radius: 20px;
+  padding: 4px 20px;
+  border: none;
+  outline: none;
+}
+
+.form-btn:hover {
+  background-color: rgba(255, 255, 255, 0.8);
 }

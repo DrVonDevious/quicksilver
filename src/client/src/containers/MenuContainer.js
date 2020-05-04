@@ -10,15 +10,6 @@ const MenuContainer = () => {
   const menuState = useSelector(state => state.menu.menuState);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    document.addEventListener("keydown", event => {
-      if (event.isComposing || event.keyCode === 32) {
-        dispatch(toggleMenu());
-        console.log("Space");
-      }
-    })
-  }, []);
-
   return (
     <div className="menu-container">
       { menuState ? <MenuBar /> : <MenuButton /> }

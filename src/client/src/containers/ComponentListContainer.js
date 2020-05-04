@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { v4 as uuid } from 'uuid';
+import { Rnd } from 'react-rnd';
 
-import { setComponents, resetComponents } from '../reducers/loadReducer';
+import { setMode, setComponents, resetComponents } from '../reducers/loadReducer';
 import ComponentItem from '../components/ComponentItem';
 import SearchBar from '../components/SearchBar';
 import '../css/ComponentListContainer.css';
@@ -34,29 +35,76 @@ const ComponentListContainer = () => {
 
   useEffect(() => {
     if (state.user.currentUser) {
+      fetchComponents(false);
+      dispatch(setMode("user"));
+    } else {
       fetchComponents(true);
+      dispatch(setMode("lib"));
     };
   }, []);
 
+  useEffect(() => {
+    const libTab = document.querySelector("#libTab");
+    const userTab = document.querySelector("#userTab");
+    if(state.user.currentUser) {
+      if(state.load.mode === "lib") {
+        userTab.style.backgroundColor = "#162228";
+        libTab.style.backgroundColor = "#263238";
+      } else {
+        libTab.style.backgroundColor = "#162228";
+        userTab.style.backgroundColor = "#263238";
+      };
+    };
+  });
+
   const handleSwitchList = (type) => {
-    type === "lib" ? fetchComponents(true) : fetchComponents(false);
+    switch(type) {
+      case "lib":
+        fetchComponents(true);
+        dispatch(setMode("lib"));
+        break;
+      case "user":
+        fetchComponents(false);
+        dispatch(setMode("user"));
+        break;
+    };
   };
 
   return (
-    <div className="component-list">
+    <Rnd
+      className="component-container"
+      bounds=".main-container"
+      default={{
+        x: window.innerWidth / 1.02 -320,
+        y: window.innerHeight / 2.88 -250,
+        width: 320,
+        height: 500,
+      }}
+      enableResizing={{
+        bottom: true,
+        bottomLeft: false,
+        bottomRight: false,
+        left: false,
+        right: false,
+        top: false,
+        topLeft: false,
+        topRight: false,
+      }}
+    >
+      <p className="component-label">Components</p>
       { state.user.currentUser ? [
-        <button onClick={() => handleSwitchList("user")}>My Components</button>,
+        <button id="userTab" className="component-tab" onClick={() => handleSwitchList("user")}>My Components</button>,
       ] : null }
-      <button onClick={() => handleSwitchList("lib")}>Library</button>
+      <button id="libTab" className="component-tab" onClick={() => handleSwitchList("lib")}>Library</button>
+      <div className="component-list">
       <SearchBar />
-      <div>
         {
           state.load.components
             .filter(c => c.name.includes(state.load.query))
             .map(c => (<ComponentItem component={c} key={uuid()} />))
         }
       </div>
-    </div>
+    </Rnd>
   );
 };
 

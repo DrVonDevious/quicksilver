@@ -52,15 +52,17 @@ const LoginForm = () => {
 
   return (
     <div className="login-form">
-      <h2>Login</h2>
+      <h2 className="form-header">Login</h2>
       <form onSubmit={(e) => handleLogin(e)}>
-        <label>Username: </label>
-        <input type="text" />
+        <label className="form-label">Username</label>
         <br />
-        <label>Password: </label>
-        <input type="text" />
+        <input className="form-input" type="text" />
         <br />
-        <button>Login</button>
+        <label className="form-label" >Password</label>
+        <br />
+        <input className="form-input" type="text" />
+        <br />
+        <button className="form-btn">Login</button>
       </form>
     </div>
   );

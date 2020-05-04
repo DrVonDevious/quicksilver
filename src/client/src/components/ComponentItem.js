@@ -18,9 +18,11 @@ const ComponentItem = (props) => {
     })
       .then(res => res.json())
       .then(component => {
-        dispatch(updateCSS(component.css_code));
-        dispatch(updateHTML(component.html_code));
-        dispatch(updateJS(component.js_code));
+        if(component) {
+          dispatch(updateCSS(component.css_code));
+          dispatch(updateHTML(component.html_code));
+          dispatch(updateJS(component.js_code));
+        };
       })
   };
 
@@ -42,9 +44,16 @@ const ComponentItem = (props) => {
   };
 
   return (
-    <div className="component-item" onClick={handleLoadComponent}>
-      {props.component.name}
-      <button className="delete-btn" onClick={handleDelete}>Delete</button>
+    <div style={{height: "40px"}}>
+      <div className="component-item" onClick={handleLoadComponent}>
+        {props.component.name}
+      </div>
+      <button className="delete-btn" onClick={handleDelete}>
+        <svg className="delete-icon bi bi-x" width="2.5em" height="2.5em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fillRule="evenodd" d="M11.854 4.146a.5.5 0 010 .708l-7 7a.5.5 0 01-.708-.708l7-7a.5.5 0 01.708 0z" clip-rule="evenodd"/>
+          <path fillRule="evenodd" d="M4.146 4.146a.5.5 0 000 .708l7 7a.5.5 0 00.708-.708l-7-7a.5.5 0 00-.708 0z" clip-rule="evenodd"/>
+        </svg>
+      </button>
     </div>
   );
 };

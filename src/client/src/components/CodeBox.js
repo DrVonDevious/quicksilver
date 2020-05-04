@@ -23,7 +23,6 @@ const CodeBox = () => {
     <div className="code-box">
       {/* --------- CSS Code Box -------- */}
       { codeState.mode === "css" ? [
-          "CSS:",
           <CodeMirror
             value={codeState.css}
             options={{
@@ -41,7 +40,6 @@ const CodeBox = () => {
 
       {/* --------- HTML Code Box -------- */}
       { codeState.mode === "html" ? [
-          "HTML:",
           <CodeMirror
             value={codeState.html}
             options={{
@@ -59,7 +57,6 @@ const CodeBox = () => {
 
       {/* ------ Javascript Code Box ----- */}
       { codeState.mode === "js" ? [
-          "Javascript:",
           <CodeMirror
             value={codeState.js}
             options={{

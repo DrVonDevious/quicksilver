@@ -1,5 +1,35 @@
 .component-item {
-  background-color: teal;
-  width: 140px;
-  height: 80px;
+  background-color: #364248;
+  color: white;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 80%;
+  height: auto;
+  padding: 10px 20px;
+  margin-top: 20px;
+  margin-bottom: 24px;
+  border-radius: 20px;
+  box-shadow: 0px 2px 10px -4px black;
+}
+
+.component-item:hover {
+  box-shadow: 0px 4px 10px -2px black;
+}
+
+.delete-btn {
+  position: relative;
+  top: -58px;
+  left: 82%;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.delete-icon {
+  fill: #263238;
+}
+
+.delete-icon:hover {
+  fill: red;
 }

@@ -36,7 +36,10 @@ const CanvasContainer = () => {
   const url = generatePageURL({html: state.code.html, css: state.code.css, js: state.code.js});
 
   return (
-    <iframe className="main-canvas" src={url} style={{width: state.canvas.width, height: state.canvas.height}}/>
+    <div>
+      <iframe className="main-canvas" src={url} style={{width: state.canvas.width, height: state.canvas.height}}/>
+      <div className="iframe-shield" style={{width: state.canvas.width, height: state.canvas.height}} />
+    </div>
   );
 };
 

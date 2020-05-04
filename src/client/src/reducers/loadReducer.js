@@ -6,6 +6,7 @@ const loadSlice = createSlice({
   name: "loadSlice",
   initialState: {
     loadState: false,
+    mode: "lib",
     query: "",
     components: [],
   },
@@ -14,6 +15,7 @@ const loadSlice = createSlice({
   reducers: {
     toggleLoad(state, action) { state.loadState = !state.loadState },
     setComponents(state, action) { state.components = action.payload },
+    setMode(state, action) { state.mode = action.payload },
     removeComponent(state, action) {
       state.components = state.components.filter(c => c.id !== action.payload)
     },
@@ -27,6 +29,7 @@ const loadSlice = createSlice({
 export const {
   toggleLoad,
   setComponents,
+  setMode,
   resetComponents,
   removeComponent,
   filterComponents

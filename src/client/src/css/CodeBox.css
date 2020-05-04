@@ -1,25 +1,29 @@
 
 .code-box-container {
-  background-color: rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(20px);
+  background-color: #162228;
   border-style: solid;
   border-color: rgba(255,255,255, 0.4);
-  box-shadow: 0px 4px 20px 4px;
+  box-shadow: 0px 8px 20px 4px;
   border-width: thin;
-  width: 420px;
-  height: 476px;
+  min-width: 350.4px;
+  min-height: 202px;
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  border-radius: 8px;
-  overflow: hidden;
-  resize: both;
+  border-radius: 16px;
+  /* overflow: hidden; */
 }
 
 .code-box {
   height: 100%;
+  padding-bottom: 50px;
   box-sizing: border-box;
+  overflow: scroll;
+}
+
+.code-box::-webkit-scrollbar {
+  display: none;
 }
 
 .CodeMirror {
@@ -30,7 +34,33 @@
   width: 100% !important;
 }
 
+.react-codemirror2::-webkit-scrollbar {
+  display: none;
+}
+
 .react-codemirror2 {
   height: 100% !important;
   width: 100% !important;
+}
+
+.code-btn {
+  border: none;
+  border-radius: 16px 16px 0px 0px;
+  outline: none;
+  color: white;
+  background-color: #162228;
+  padding: 8px 40px;
+}
+
+.code-btn:hover {
+  background-color: #263238 !important;
+}
+
+.css-btn {
+}
+
+.html-btn {
+}
+
+.js-btn {
 }

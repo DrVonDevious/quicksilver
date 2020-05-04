@@ -54,18 +54,21 @@ const RegisterForm = () => {
 
   return (
     <div className="register-form">
-      <h2>Register</h2>
+      <h2 className="form-header">Register</h2>
       <form onSubmit={(e) => handleRegister(e)}>
-        <label>Username: </label>
-        <input type="text" />
+        <label className="form-label" >Username</label>
         <br />
-        <label>Password: </label>
-        <input type="text" />
+        <input className="form-input" type="text" />
         <br />
-        <label>Confirm Password: </label>
-        <input type="text" />
+        <label className="form-label">Password</label>
         <br />
-        <button>Register</button>
+        <input className="form-input" type="text" />
+        <br />
+        <label className="form-label">Confirm Password</label>
+        <br />
+        <input className="form-input" type="text" />
+        <br />
+        <button className="form-btn">Register</button>
       </form>
     </div>
   );
