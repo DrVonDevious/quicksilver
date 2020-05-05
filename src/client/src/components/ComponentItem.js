@@ -9,9 +9,11 @@ const ComponentItem = (props) => {
 
   const dispatch = useDispatch();
 
+  var component_url = props.component.user_id ? "user_components" : "library_components";
+
   const handleLoadComponent = () => {
     const token = localStorage.getItem("token");
-    fetch(`http://localhost:8080/user_components/${props.component.id}`, {
+    fetch(`http://localhost:8080/${component_url}/${props.component.id}`, {
       headers: {
         "Authorization": `Bearer ${token}`
       }
@@ -48,12 +50,14 @@ const ComponentItem = (props) => {
       <div className="component-item" onClick={handleLoadComponent}>
         {props.component.name}
       </div>
-      <button className="delete-btn" onClick={handleDelete}>
-        <svg className="delete-icon bi bi-x" width="2.5em" height="2.5em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-          <path fillRule="evenodd" d="M11.854 4.146a.5.5 0 010 .708l-7 7a.5.5 0 01-.708-.708l7-7a.5.5 0 01.708 0z" clip-rule="evenodd"/>
-          <path fillRule="evenodd" d="M4.146 4.146a.5.5 0 000 .708l7 7a.5.5 0 00.708-.708l-7-7a.5.5 0 00-.708 0z" clip-rule="evenodd"/>
-        </svg>
-      </button>
+      { props.component.user_id ? [
+          <button className="delete-btn" onClick={handleDelete}>
+            <svg className="delete-icon bi bi-x" width="2.5em" height="2.5em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fillRule="evenodd" d="M11.854 4.146a.5.5 0 010 .708l-7 7a.5.5 0 01-.708-.708l7-7a.5.5 0 01.708 0z" clip-rule="evenodd"/>
+              <path fillRule="evenodd" d="M4.146 4.146a.5.5 0 000 .708l7 7a.5.5 0 00.708-.708l-7-7a.5.5 0 00-.708 0z" clip-rule="evenodd"/>
+            </svg>
+          </button>
+      ] : null }
     </div>
   );
 };

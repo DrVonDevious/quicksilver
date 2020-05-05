@@ -38,6 +38,15 @@
   display: none;
 }
 
+.CodeMirror-hscrollbar {
+  display: none !important;
+}
+
+.CodeMirror-scrollbar-filler {
+  display: none !important;
+}
+
+
 .react-codemirror2 {
   height: 100% !important;
   width: 100% !important;
