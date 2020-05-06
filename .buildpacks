@@ -1,0 +1,2 @@
+src/server=https://github.com/heroku/heroku-buildpack-ruby
+src/client=https://github.com/heroku/heroku-buildpack-nodejs
