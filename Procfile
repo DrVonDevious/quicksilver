@@ -1,3 +1,3 @@
 
-web: node src/App.js
+web: npm start
 worker: rails server -p 8080
