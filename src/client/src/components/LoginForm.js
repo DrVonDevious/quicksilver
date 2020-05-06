@@ -60,7 +60,7 @@ const LoginForm = () => {
         <br />
         <label className="form-label" >Password</label>
         <br />
-        <input className="form-input" type="text" />
+        <input className="form-input" type="password" />
         <br />
         <button className="form-btn">Login</button>
       </form>

@@ -62,11 +62,11 @@ const RegisterForm = () => {
         <br />
         <label className="form-label">Password</label>
         <br />
-        <input className="form-input" type="text" />
+        <input className="form-input" type="password" />
         <br />
         <label className="form-label">Confirm Password</label>
         <br />
-        <input className="form-input" type="text" />
+        <input className="form-input" type="password" />
         <br />
         <button className="form-btn">Register</button>
       </form>

@@ -75,7 +75,7 @@ const SaveComponentForm = () => {
           <path fillRule="evenodd" d="M4.146 4.146a.5.5 0 000 .708l7 7a.5.5 0 00.708-.708l-7-7a.5.5 0 00-.708 0z" clipRule="evenodd"/>
         </svg>
       </button>
-      <button onClick={(e) => handleSave(e, true)}>Save To Library</button>
+      {/* <button onClick={(e) => handleSave(e, true)}>Save To Library</button> */}
     </div>
   );
 };
