@@ -1,3 +1,3 @@
 
-web: cd client && npm start
+web: npm start
 worker: rails server -p 8080
